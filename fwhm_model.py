@@ -70,7 +70,7 @@ params = {
     "verbose": False,
 }
 
-kf = KFold(n_splits=10, shuffle=True, random_state=5)
+kf = KFold(n_splits=10, shuffle=True, random_state=15)
 pred_eV = np.zeros(len(df))
 
 for train_idx, val_idx in kf.split(X):
