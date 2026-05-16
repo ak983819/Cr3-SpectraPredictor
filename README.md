@@ -1,4 +1,4 @@
-# Cr3+-SpectraPredictor
+# Cr3+SpectraPredictor
 
 ## Predicting Emission Wavelength and FWHM of Cr³⁺-Substituted Phosphors
 This repository provides machine learning models for predicting the emission peak wavelength (λem) and full width at half maximum (FWHM) of Cr3+-substituted phosphors using compositional and structural descriptors.
