@@ -30,7 +30,7 @@ By combining the predicted λem and FWHM values with a Gaussian function, an est
 If you use this repository, please cite:
 
 **Amit Kumar et al.**  
-*Machine Learning-Assisted Discovery of Cr3+-Based NIR Phosphors* (Submitted).
+*Data-Driven Discovery of Broadband Cr3+ Phosphors Emitting in the NIR-II Window* (Submitted).
 
 ---
 
