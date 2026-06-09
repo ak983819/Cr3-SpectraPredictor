@@ -21,6 +21,7 @@ By combining the predicted λem and FWHM values with a Gaussian function, an est
   - [3. Predict Emission Wavelength (λem)](#3-predict-emission-wavelength-λem)
   - [4. Predict FWHM](#4-predict-fwhm)
   - [5. Generate a Gaussian Emission Spectrum](#5-generate-a-gaussian-emission-spectrum)
+  - [6. Alternative: Extract Structural Features Directly from Materials Project](#6-alternative-extract-structural-features-directly-from-materials-project)
 - [Authors](#-authors)
 
 ---
@@ -241,7 +242,7 @@ The generated structural descriptors can be directly transferred to:
 
 and used in place of the corresponding CIF-derived structural descriptors.
 
-This workflow provides an alternative to CIF-based structural feature extraction when Materials Project entries are available for the target compounds.
+
 
 ---
 
