@@ -195,12 +195,10 @@ containing the predicted FWHM values for all compounds listed in `To_predict_fwh
 
 ### 5. Generate a Gaussian Emission Spectrum
 
-After obtaining the predicted λem and FWHM values, an approximate emission spectrum can be generated using:
+Using the predicted emission wavelength values from `predicted_em.xlsx` and the predicted FWHM values from `predicted_fwhm.xlsx`, an approximate emission spectrum can be generated using:
 
 ```math
 I(\lambda)=\exp\left[-4\ln(2)\left(\frac{\lambda-\lambda_{em}}{\mathrm{FWHM}}\right)^2\right]
-```
-
 where:
 
 - λ = wavelength
