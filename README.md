@@ -199,11 +199,13 @@ Using the predicted emission wavelength values from `predicted_em.xlsx` and the 
 
 ```math
 I(\lambda)=\exp\left[-4\ln(2)\left(\frac{\lambda-\lambda_{em}}{\mathrm{FWHM}}\right)^2\right]
+```
+
 where:
 
 - λ = wavelength
-- λem = predicted emission peak wavelength
-- FWHM = predicted full width at half maximum
+- λem = predicted emission wavelength from `predicted_em.xlsx`
+- FWHM = predicted full width at half maximum from `predicted_fwhm.xlsx`
 
 The predicted λem and FWHM values can be combined with the Gaussian function above to generate an estimated emission spectrum for the target Cr3+ phosphor.
 
