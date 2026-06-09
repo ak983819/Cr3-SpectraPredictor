@@ -2,11 +2,11 @@
 
 ![Graphical Overview](TOC-01.jpg)
 
-## Predicting Emission Wavelength and FWHM of Cr³⁺-Substituted Phosphors
+## Predicting Emission Wavelength and FWHM of Cr3+-Substituted Phosphors
 
-Cr3+SpectraPredictor is a machine-learning framework for predicting the emission peak wavelength (λem) and full width at half maximum (FWHM) of Cr³⁺-substituted phosphors using compositional and structural descriptors.
+Cr3+SpectraPredictor is a machine-learning framework for predicting the emission peak wavelength (λem) and full width at half maximum (FWHM) of Cr3+-substituted phosphors using compositional and structural descriptors.
 
-By combining the predicted λem and FWHM values with a Gaussian function, an estimated emission spectrum can be generated for a target Cr³⁺ phosphor.
+By combining the predicted λem and FWHM values with a Gaussian function, an estimated emission spectrum can be generated for a target Cr3+ phosphor.
 
 ---
 
@@ -30,7 +30,7 @@ By combining the predicted λem and FWHM values with a Gaussian function, an est
 If you use this repository, please cite:
 
 **Amit Kumar et al.**  
-*Machine Learning-Assisted Discovery of Cr³⁺-Based NIR Phosphors* (Submitted).
+*Machine Learning-Assisted Discovery of Cr3+-Based NIR Phosphors* (Submitted).
 
 ---
 
@@ -49,37 +49,31 @@ openpyxl
 shap
 ```
 
-Install them using:
-
-```bash
-pip install pymatgen catboost scikit-learn pandas numpy matplotlib openpyxl shap
-```
-
 ---
 
 ## 📏 Shannon Ionic Radius Descriptors
 
-The `1/R²` and `R5` descriptors are calculated from the Shannon ionic radius (`R`, in Å) of the cation site substituted by Cr³⁺.
+The `1/R2` and `R5` descriptors are obtained from the Shannon ionic radius (`R`, in Å) of the cation site substituted by Cr3+.
 
-| Cation | R (Å) | 1/R² | R⁵ |
+| Cation | R (Å) | 1/R2 | R5 |
 |---------|------:|------:|------:|
-| Al³⁺ | 0.535 | 3.495 | 0.043830 |
-| Sb⁵⁺ | 0.600 | 2.778 | 0.077760 |
-| Ti⁴⁺ | 0.605 | 2.733 | 0.081054 |
-| Ga³⁺ | 0.620 | 2.601 | 0.091613 |
-| Nb⁵⁺ | 0.640 | 2.441 | 0.107374 |
-| Sn⁴⁺ | 0.690 | 2.100 | 0.156403 |
-| Hf⁴⁺ | 0.710 | 1.984 | 0.180423 |
-| Mg²⁺ | 0.720 | 1.929 | 0.193492 |
-| Sc³⁺ | 0.745 | 1.802 | 0.229499 |
-| In³⁺ | 0.800 | 1.563 | 0.327680 |
+| Al3+ | 0.535 | 3.495 | 0.043830 |
+| Sb5+ | 0.600 | 2.778 | 0.077760 |
+| Ti4+ | 0.605 | 2.733 | 0.081054 |
+| Ga3+ | 0.620 | 2.601 | 0.091613 |
+| Nb5+ | 0.640 | 2.441 | 0.107374 |
+| Sn4+ | 0.690 | 2.100 | 0.156403 |
+| Hf4+ | 0.710 | 1.984 | 0.180423 |
+| Mg2+ | 0.720 | 1.929 | 0.193492 |
+| Sc3+ | 0.745 | 1.802 | 0.229499 |
+| In3+ | 0.800 | 1.563 | 0.327680 |
 
 where
 
-- `1/R² = 1/(R²)`
+- `1/R2 = 1/(R²)`
 - `R5 = R⁵`
 
-*R denotes the Shannon ionic radius (CN = 6) of the cation site occupied by Cr³⁺.*
+*R denotes the Shannon ionic radius (CN = 6) of the cation site occupied by Cr3+.*
 
 ---
 
@@ -111,11 +105,11 @@ This notebook generates **15 of the 20 features** required by the emission model
 
 - `max_metal_ligand_bond_length`
 - `mean_metal_ligand_bond_length`
-- `polyhedron volume`
+- `polyhedron_volume`
 - `distortion_index`
-- `1/R²`
+- `1/R2`
 
-The `1/R²` descriptor should be calculated using the Shannon ionic radii listed above.
+The `1/R2` descriptor should be obtained from the Shannon ionic radius table provided above.
 
 ---
 
@@ -145,11 +139,11 @@ This notebook generates **13 of the 18 features** required by the FWHM model. To
 
 - `max_metal_ligand_bond_length`
 - `mean_metal_ligand_bond_length`
-- `polyhedron volume`
-- `x` (Cr³⁺ dopant concentration)
+- `polyhedron_volume`
+- `x` (Cr3+ dopant concentration)
 - `R5`
 
-The `R5` descriptor should be calculated using the Shannon ionic radii listed above.
+The `R5` descriptor should be obtained from the Shannon ionic radius table provided above.
 
 ---
 
@@ -201,20 +195,19 @@ containing the predicted FWHM values for all compounds listed in `To_predict_fwh
 
 ### 5. Generate a Gaussian Emission Spectrum
 
-After obtaining the predicted λem and FWHM values, an approximate emission spectrum can be generated using a Gaussian profile:
+After obtaining the predicted λem and FWHM values, an approximate emission spectrum can be generated using:
 
-\[
-I(\lambda)=I_0 \exp\left[-4\ln(2)\left(\frac{\lambda-\lambda_{em}}{\mathrm{FWHM}}\right)^2\right]
-\]
+```math
+I(\lambda)=\exp\left[-4\ln(2)\left(\frac{\lambda-\lambda_{em}}{\mathrm{FWHM}}\right)^2\right]
+```
 
 where:
 
 - λ = wavelength
 - λem = predicted emission peak wavelength
 - FWHM = predicted full width at half maximum
-- I₀ = peak intensity
 
-The predicted λem and FWHM values can be combined with the Gaussian function above to generate an estimated emission spectrum for the target Cr³⁺ phosphor.
+The predicted λem and FWHM values can be combined with the Gaussian function above to generate an estimated emission spectrum for the target Cr3+ phosphor.
 
 ---
 
