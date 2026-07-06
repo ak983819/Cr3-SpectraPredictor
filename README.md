@@ -242,6 +242,24 @@ The generated structural descriptors can be directly transferred to:
 - `To_predict_fwhm.xlsx`
 
 and used in place of the corresponding CIF-derived structural descriptors.
+---
+
+### 7. Build a Cr³⁺ Spectroscopy Database from Literature PDFs
+
+This notebook automatically extracts spectroscopic data from Cr³⁺ phosphor literature PDFs using a large language model (LLM). It processes a folder of PDF files, identifies the reported Cr³⁺ compositions, extracts key spectroscopic properties, retrieves the DOI, and exports the results into a structured Excel database.
+
+**Input**
+- Folder containing Cr³⁺ phosphor PDF articles
+
+**Output**
+- `cr3_spectra_database.xlsx`
+
+The extracted information includes:
+- Formula
+- Cr concentration
+- Emission wavelength (λem)
+- FWHM
+- DOI
 
 
 
