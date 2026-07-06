@@ -23,7 +23,7 @@ By combining the predicted λem and FWHM values with a Gaussian function, an est
   - [5. Generate a Gaussian Emission Spectrum](#5-generate-a-gaussian-emission-spectrum)
   - [6. Alternative: Extract Structural Features Directly from Materials Project](#6-alternative-extract-structural-features-directly-from-materials-project)
   - [7. Extract Spectroscopic Properties from Cr³⁺ Literature PDF](#7-extract-spectroscopic-properties-from-cr3-literature-pdf)
-- [Authors](#-authors)
+  - [Authors](#-authors)
 
 ---
 
