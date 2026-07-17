@@ -162,6 +162,8 @@ After preparing `To_predict_em.xlsx`, place it in the same directory as:
 - `trainingset_em.xlsx`
 - `em_model.py`
 
+An example of a fully prepared Excel file for predicting emission wavelength is provided as `To_predict_em_test.xlsx`.
+
 Run:
 
 ```bash
@@ -184,6 +186,8 @@ After preparing `To_predict_fwhm.xlsx`, place it in the same directory as:
 
 - `trainingset_fwhm.xlsx`
 - `fwhm_model.py`
+
+An example of a fully prepared Excel file for predicting fwhm is provided as `To_predict_fwhm_test.xlsx`.
 
 Run:
 
