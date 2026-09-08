@@ -20,9 +20,10 @@ By combining the predicted λem and FWHM values with a Gaussian function, an est
   - [2. Define Features for the FWHM Model](#2-define-features-for-the-fwhm-model)
   - [3. Predict Emission Wavelength (λem)](#3-predict-emission-wavelength-λem)
   - [4. Predict FWHM](#4-predict-fwhm)
-  - [5. Generate a Gaussian Emission Spectrum](#5-generate-a-gaussian-emission-spectrum)
-  - [6. Alternative: Extract Structural Features Directly from Materials Project](#6-alternative-extract-structural-features-directly-from-materials-project)
-  - [7. Extract Spectroscopic Properties from Cr³⁺ Literature PDF](#7-extract-spectroscopic-properties-from-cr3-literature-pdf)
+  - [5. Combined Prediction Results](#5-combined-prediction-results)
+  - [6. Generate a Gaussian Emission Spectrum](#6-generate-a-gaussian-emission-spectrum)
+  - [7. Alternative: Extract Structural Features Directly from Materials Project](#7-alternative-extract-structural-features-directly-from-materials-project)
+  - [8. Build a Cr³⁺ Spectroscopy Database from Literature PDFs](#8-build-a-cr-spectroscopy-database-from-literature-pdfs)
   - [Authors](#-authors)
 
 ---
@@ -160,14 +161,14 @@ The `R5` descriptor should be obtained from the Shannon ionic radius table provi
 After preparing `To_predict_em.xlsx`, place it in the same directory as:
 
 - `trainingset_em.xlsx`
-- `em_model.py`
+- `em_model.ipynb`
 
-An example of a fully prepared Excel file for predicting emission wavelength is provided as `To_predict_em_test.xlsx`.
+An example of a fully prepared Excel file for predicting emission wavelength is provided as `To_predict_em.xlsx`.
 
 Run:
 
-```bash
-python em_model.py
+```text
+em_model.ipynb
 ```
 
 The model generates:
@@ -185,14 +186,14 @@ containing the predicted emission wavelength (λem) values for all compounds lis
 After preparing `To_predict_fwhm.xlsx`, place it in the same directory as:
 
 - `trainingset_fwhm.xlsx`
-- `fwhm_model.py`
+- `fwhm_model.ipynb`
 
-An example of a fully prepared Excel file for predicting fwhm is provided as `To_predict_fwhm_test.xlsx`.
+An example of a fully prepared Excel file for predicting FWHM is provided as `To_predict_fwhm.xlsx`.
 
 Run:
 
-```bash
-python fwhm_model.py
+```text
+fwhm_model.ipynb
 ```
 
 The model generates:
@@ -205,7 +206,19 @@ containing the predicted FWHM values for all compounds listed in `To_predict_fwh
 
 ---
 
-### 5. Generate a Gaussian Emission Spectrum
+### 5. Combined Prediction Results
+
+The predicted emission wavelength and FWHM values for the screened compounds are provided in:
+
+```text
+combined_predicted_em_fwhm.xlsx
+```
+
+This file combines the outputs from `predicted_em.xlsx` and `predicted_fwhm.xlsx` into a single list.
+
+---
+
+### 6. Generate a Gaussian Emission Spectrum
 
 Using the predicted emission wavelength values from `predicted_em.xlsx` and the predicted FWHM values from `predicted_fwhm.xlsx`, an approximate emission spectrum can be generated using:
 
@@ -222,7 +235,8 @@ where:
 The predicted λem and FWHM values can be combined with the Gaussian function above to generate an estimated emission spectrum for the target Cr3+ phosphor.
 
 ---
-### 6. Alternative: Extract Structural Features Directly from Materials Project
+
+### 7. Alternative: Extract Structural Features Directly from Materials Project
 
 Instead of using CIF files to obtain structural descriptors, users may directly retrieve structural information from Materials Project.
 
@@ -246,26 +260,28 @@ The generated structural descriptors can be directly transferred to:
 - `To_predict_fwhm.xlsx`
 
 and used in place of the corresponding CIF-derived structural descriptors.
+
 ---
 
-### 7. Build a Cr³⁺ Spectroscopy Database from Literature PDFs
+### 8. Build a Cr³⁺ Spectroscopy Database from Literature PDFs
 
-This notebook automatically extracts spectroscopic data from Cr³⁺ phosphor literature PDFs using a large language model (LLM). It processes a folder of PDF files, identifies the reported Cr³⁺ compositions, extracts key spectroscopic properties, retrieves the DOI, and exports the results into a structured Excel database.
+The `Cr3_database_creator.ipynb` notebook automatically extracts spectroscopic data from Cr³⁺ phosphor literature PDFs using a large language model (LLM). It processes a folder of PDF files, identifies the reported Cr³⁺ compositions, extracts key spectroscopic properties, retrieves the DOI, and exports the results into a structured Excel database.
 
 **Input**
+
 - Folder containing Cr³⁺ phosphor PDF articles
 
 **Output**
+
 - `cr3_spectra_database.xlsx`
 
 The extracted information includes:
+
 - Formula
 - Cr concentration
 - Emission wavelength (λem)
 - FWHM
 - DOI
-
-
 
 ---
 
