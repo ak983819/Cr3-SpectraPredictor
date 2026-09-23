@@ -1,6 +1,6 @@
 # Cr3+SpectraPredictor
 
-![Graphical Overview](TOC-01.jpg)
+![Graphical Overview](TOC-01.png)
 
 ## Predicting Emission Wavelength and FWHM of Cr3+-Substituted Phosphors
 
